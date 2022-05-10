@@ -2,7 +2,8 @@ package alura.com.br.agenda;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.annotation.Nullable;
 
@@ -20,16 +21,13 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         //Ciando uma lista que ira representar os alunos implementando um ArrayList para isto.
-        List<String> alunos = new ArrayList<>(Arrays.asList("Paulo", "Isabela", "Alex"));
+        List<String> alunos = new ArrayList<>(Arrays.asList("Paulo", "Isabela", "Alex", "Kennan", "Kimberly"));
 
-        //obtento as views para vincular os dados, usando o metodo findViewById para identificar as views pelo seu Id.
-        TextView primeiroAluno = findViewById(R.id.textView);
-        TextView segundoAluno = findViewById(R.id.textView2);
-        TextView terceiroAluno = findViewById(R.id.textView3);
+        //Utilizando o componente ListView para implementar a lista de alunos no layout.
+        ListView listaDeAlunos = findViewById(R.id.ativity_main_lista_de_alunos);
 
-        //vinculando as views com a lista,
-        primeiroAluno.setText(alunos.get(0));
-        segundoAluno.setText(alunos.get(1));
-        terceiroAluno.setText(alunos.get(2));
+        //Array Adapter faz esta implementação envia os argumentos via construtor, e ele já consegue fazer o vínculo dos dados
+        listaDeAlunos.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, alunos));
+
     }
 }
