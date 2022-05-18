@@ -1,24 +1,29 @@
-package alura.com.br.agenda;
+package alura.com.br.agenda.ui.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends Activity {
+import alura.com.br.agenda.R;
+
+public class listaDeAlunosActivity extends AppCompatActivity {
     //Sobrescrevendo metodo onCreate da class Active.
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Define o titulo da appBar
+        setTitle("Lista de alunos");
+
         //chamando o método setContentView() enviando a referência do arquivo estático de layout criado.
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_lista_de_alunos);
 
         //Ciando uma lista que ira representar os alunos implementando um ArrayList para isto.
         List<String> alunos = new ArrayList<>(Arrays.asList("Paulo", "Isabela", "Alex", "Kennan", "Kimberly"));
